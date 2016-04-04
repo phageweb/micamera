@@ -1,46 +1,38 @@
-#include "micamera.h"
-#include "ui_micamera.h"
+#include "raspcamera.h"
+#include <iostream>
+#include <fstream>
+#include <unistd.h>
 
-micamera::micamera(QWidget *parent) :
 
-    QMainWindow(parent),
-    ui(new Ui::micamera)
+
+raspcamera::raspcamera()
 {
-    ui->setupUi(this);
+
+      //  this->nCount=100;
+        //set camera params
+//    this->camera1.set( CV_CAP_PROP_FORMAT, CV_8UC1 );
+
+
+
 }
 
-micamera::~micamera()
-{
-    delete ui;
+void raspcamera::createImageFromCamera(){
 
-}
+        camera1.grab();
+        camera1.retrieve ( image);
+        //camera1.release();
+            //cv::imwrite("/home/pi/novotny/mikamera/micamera_view/micamera/foto.jpg",image);
+    }
+ void raspcamera::initCamera(){
+    camera1.set( CV_CAP_PROP_CONVERT_RGB, CV_8UC1 );
+    camera1.open();
 
+ }
+ void raspcamera::closeCamera(){
+    camera1.release();
 
-
-
-void micamera::on_create_photo_clicked()
-{
-    camera1.createImageFromCamera();
-    //qimage1=QImage("/home/pi/novotny/mikamera/micamera_view/micamera/foto.jpg");
-  //  qimage1=QImage(const uchar *)camera1.image, camera1.image.cols, camera1.image.rows , QImage::Format_RGB888);
-    //image(3,3,QImage::Format_ARGB32_Premultiplied);
-    //ui->viewphoto->setPixmap(QPixmap::fromImage(Mat2QImage(camera1.image)));
-    QImage qimage1= QImage((uchar*) camera1.image.data, camera1.image.cols, camera1.image.rows, camera1.image.step, QImage::Format_RGB888);
-
- ui->viewphoto->setPixmap(QPixmap::fromImage(qimage1).scaled(400,240,Qt::IgnoreAspectRatio,Qt::SmoothTransformation));
- //imshow("neco", camera1.image);
  }
 
 
 
-void micamera::on_initCamera_clicked()
-{
-    camera1.initCamera();
-}
 
-
-
-void micamera::on_closeCamera_clicked()
-{
-    camera1.closeCamera();
-}
