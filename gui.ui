@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>micamera</class>
- <widget class="QMainWindow" name="micamera">
+ <class>gui</class>
+ <widget class="QMainWindow" name="gui">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -27,17 +27,17 @@
      <string>init camera</string>
     </property>
    </widget>
-   <widget class="QLabel" name="viewphoto">
+   <widget class="QLabel" name="viewImage">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>10</y>
-      <width>240</width>
-      <height>400</height>
+      <width>360</width>
+      <height>360</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>viewImage</string>
     </property>
    </widget>
    <widget class="QPushButton" name="create_photo">
@@ -57,13 +57,91 @@
     <property name="geometry">
      <rect>
       <x>700</x>
-      <y>60</y>
+      <y>110</y>
       <width>101</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
      <string>close camera</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="transformImage">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>70</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>transform Image</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_text">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>10</y>
+      <width>68</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>treshold</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox_treshold">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>0</y>
+      <width>61</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>255</number>
+    </property>
+   </widget>
+   <widget class="QSlider" name="horizontalSlider">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>0</y>
+      <width>160</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>255</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_continue">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>70</y>
+      <width>99</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>continue</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>100</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
     </property>
    </widget>
   </widget>

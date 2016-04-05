@@ -1,29 +1,37 @@
-#ifndef MICAMERA_H
-#define MICAMERA_H
+#ifndef GUI_H
+#define GUI_H
 
-
-#include "raspcamera.h"
+#include "gui.h"
 #include "micamera.h"
+#include "cvrecognize.h"
+
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/core.hpp>
 #include <QMainWindow>
 #include <QImage>
 #include <QPainter>
+#include <QTimer>
+#include <QThread>
+#include <qthread.h>
 #include <iostream>
 #include <raspicam/raspicam_cv.h>
+
 namespace Ui {
-class micamera;
+class gui;
 }
 
-class micamera : public QMainWindow
+class gui : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit micamera(QWidget *parent = 0);
-    ~micamera();
-    raspcamera camera1;
-    QImage Mat2QImage(cv::Mat const& src);
+
+    explicit gui(QWidget *parent = 0);
+    ~gui();
+
+
+    micamera micamera1;
+    cvRecognize cvrecognize1;
 
 private slots:
     void on_create_photo_clicked();
@@ -32,8 +40,19 @@ private slots:
 
     void on_closeCamera_clicked();
 
+    void on_transformImage_clicked();
+
+
+    void viewImage(cv::Mat cvImage);
+
+
+
 private:
-    Ui::micamera *ui;
+    Ui::gui *ui;
 };
 
-#endif // MICAMERA_H
+
+
+#endif // GUI_H
+
+

@@ -1,30 +1,39 @@
-#ifndef RASPCAMERA_H
-#define RASPCAMERA_H
-
-
-
-
+#ifndef MICAMERA_H
+#define MICAMERA_H
 
 
 #include <QCommandLineParser>
 #include <QImage>
+#include <QMainWindow>
+#include <QImage>
+#include <QPainter>
+
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/core.hpp>
 #include <iostream>
 #include <raspicam/raspicam_cv.h>
 
-class raspcamera
+class micamera
 {
 public:
-    raspcamera();
-    void createImageFromCamera();
+
+    cv::Mat cvImage;
+    raspicam::RaspiCam_Cv camera1;
+
+
+    micamera();
     void initCamera();
     void closeCamera();
-    time_t timer_begin,timer_end;
-     int nCount;
-     raspicam::RaspiCam_Cv camera1;
-     cv::Mat image;
+    cv::Mat createImageFromCamera();
+   // cv::Mat  tranformImage(cv::Mat cvImage);
+
+
+
+
+
+
+
 
 };
 
-#endif // RASPCAMERA_H
+#endif // MICAMERA_H

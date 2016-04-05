@@ -1,5 +1,7 @@
 
-#include "micamera.h"
+#include "gui.h"
+
+
 #include <QApplication>
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/core.hpp>
@@ -12,7 +14,7 @@ int main(int argc, char *argv[])
 //
 
     QApplication a(argc, argv);
-    micamera w;
+    gui w;
     w.show();
 
 

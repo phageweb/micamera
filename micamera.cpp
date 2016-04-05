@@ -1,11 +1,16 @@
-#include "raspcamera.h"
+#include "micamera.h"
+
+#include "gui.h"
+#include "cvrecognize.h"
+
+
 #include <iostream>
 #include <fstream>
 #include <unistd.h>
 
 
 
-raspcamera::raspcamera()
+micamera::micamera()
 {
 
       //  this->nCount=100;
@@ -16,19 +21,23 @@ raspcamera::raspcamera()
 
 }
 
-void raspcamera::createImageFromCamera(){
+cv::Mat micamera::createImageFromCamera(){
 
         camera1.grab();
-        camera1.retrieve ( image);
+        camera1.retrieve (cvImage);
+
+        return cvImage;
+
         //camera1.release();
-            //cv::imwrite("/home/pi/novotny/mikamera/micamera_view/micamera/foto.jpg",image);
+            //cv::imwrite("/home/pi/novotny/mikamera/micamera_view/micamera/foto.jpg",cvImage);
     }
- void raspcamera::initCamera(){
+ void micamera::initCamera(){
     camera1.set( CV_CAP_PROP_CONVERT_RGB, CV_8UC1 );
     camera1.open();
 
  }
- void raspcamera::closeCamera(){
+
+ void micamera::closeCamera(){
     camera1.release();
 
  }

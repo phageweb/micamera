@@ -16,13 +16,17 @@ INCLUDEPATH += /usr/local/include/
 LIBS += -I/usr/local/include/ -lraspicam -lraspicam_cv -lopencv_core -lopencv_highgui
 
 SOURCES += main.cpp\
-        micamera.cpp \
-    raspcamera.cpp
+    gui.cpp \
+    micamera.cpp \
+    cvrecognize.cpp
 
-HEADERS  += micamera.h \
-    raspcamera.h
+HEADERS  += \
+    gui.h \
+    micamera.h \
+    cvrecognize.h
 
-FORMS    += micamera.ui
+FORMS    += \
+    gui.ui
 
 CONFIG += link_pkgconfig
 PKGCONFIG += opencv
