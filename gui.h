@@ -15,6 +15,10 @@
 #include <qthread.h>
 #include <iostream>
 #include <raspicam/raspicam_cv.h>
+#include <QSerialPort>
+#include <QSerialPortInfo>
+#include <QDebug>
+#include <QtWidgets>
 
 namespace Ui {
 class gui;
@@ -47,12 +51,24 @@ private slots:
 
 
 
+    void on_pushButton_clicked();
+
+    void on_pushButton_m1l_clicked();
+
+    void sendCmd;
 private:
     Ui::gui *ui;
+
+    QSerialPort *arduino;
+    static const quint16 arduino_uno_vendor_id = 9025;
+    static const quint16 arduino_uno_product_id = 67;
+    QString arduino_port_name;
+    bool arduino_is_available;
 };
 
 
 
 #endif // GUI_H
+
 
 

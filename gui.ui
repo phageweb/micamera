@@ -134,14 +134,30 @@
      <string>continue</string>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="lcdNumber">
+   <widget class="QPushButton" name="pushButton_m1l">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>100</y>
-      <width>64</width>
+      <x>390</x>
+      <y>160</y>
+      <width>75</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>motor 1 left</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_m1r">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>190</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>motor 1 right</string>
     </property>
    </widget>
   </widget>
@@ -151,7 +167,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>27</height>
+     <height>18</height>
     </rect>
    </property>
   </widget>
